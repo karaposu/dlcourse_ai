@@ -28,7 +28,7 @@ class KNN:
         if num_loops == 0:
             dists = self.compute_distances_no_loops(X)
         elif num_loops == 1:
-            dists = self.compute_distances_two_loop(X)
+            dists = self.compute_distances_two_loops(X)
         else:
             dists = self.compute_distances_two_loops(X)
 
