@@ -89,7 +89,7 @@ class KNN:
             
             v1=v1.reshape(1, v1.shape[0])
             tmp=self.train_X-v1
-            print("tmp[",i_test,"]",tmp)
+            # print("tmp[",i_test,"]",tmp)
             dists[i_test]=np.sum(np.abs(tmp),-1)
         return dists
 
@@ -142,7 +142,7 @@ class KNN:
         pred, np array of bool (num_test_samples) - binary predictions 
            for every test sample
         '''
-        print("dists:",dists)
+        # print("dists:",dists)
         num_test = dists.shape[0]
         pred = np.zeros(num_test, np.bool)
         for i in range(num_test):
@@ -155,8 +155,11 @@ class KNN:
             
             
             ind_of_train_example_with_min_distance= np.argmin(dists[i]) 
-            ind_of_train_example_with_min_distance
+            
+            
             print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
+            print("self.train_y[,"i,"]:",self.train_y[i])
+            
             # # self.train_y[i]
 
             # pred[i] =(self.train_y[ np.argmin(dists[i]) ] )
