@@ -158,7 +158,7 @@ class KNN:
             
             
             print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
-            print("self.train_y[,"i,"]:",self.train_y[i])
+            print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
             
             # # self.train_y[i]
 
