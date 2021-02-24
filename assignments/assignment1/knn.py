@@ -89,7 +89,7 @@ class KNN:
             
             v1=v1.reshape(1, v1.shape[0])
             tmp=self.train_X-v1
-            print("tmp[",i,"]",tmp)
+            print("tmp[",i_test,"]",tmp)
             dists[i_test]=np.sum(np.abs(tmp),-1)
         return dists
 
