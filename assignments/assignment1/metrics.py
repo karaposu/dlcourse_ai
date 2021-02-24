@@ -15,6 +15,9 @@ def binary_classification_metrics(prediction, ground_truth):
     f1 = 0
     nTruePositives = 0
     nFalsePositives = 0
+    print("len prediction", len(prediction))
+    print("prediction", prediction)
+    print("type prediction", type (prediction))
     for i in len(prediction):
         if prediction[i] == True:
             if prediction[i] == ground_truth[i]:
@@ -29,6 +32,9 @@ def binary_classification_metrics(prediction, ground_truth):
 
     Recall = nTruePositives / (nTruePositives + nFalseNegatives)
 # Recall = TruePositives / (TruePositives + FalseNegatives)
+# Precision = (TruePositives_/ ((TruePositives + FalsePositives
+# F - Measure = (2 * Precision * Recall) / (Precision + Recall)
+# accuracy =  nTruePositives + nTrueNegatives  / nTruePositives + nTrueNegatives + nFalseNegatives+ nFalsePositives
 # TODO: implement metrics!
 # Some helpful links:
 # https://en.wikipedia.org/wiki/Precision_and_recall
