@@ -145,9 +145,9 @@ class KNN:
         # print("dists:",dists)
         num_test = dists.shape[0]
         pred = np.zeros(num_test, np.bool)
-        print("self.train_y:"  ,self.train_y)
+        # print("self.train_y:"  ,self.train_y)
         for i in range(num_test):
-            print("dists[i]:",dists[i])
+            # print("dists[i]:",dists[i])
             # TODO: Implement choosing best class based on k
             # nearest training samples
             # self.train_X has the images  (16, 3072)
@@ -160,10 +160,11 @@ class KNN:
             
             print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
             print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            # print("self.test_y[" ,i,  "]:"  ,self.train_y[i])
             
             # # self.train_y[i]
 
-            # pred[i] =(self.train_y[ np.argmin(dists[i]) ] )
+            pred[i] =self.train_y[i]
             
 
             # # self.find_nearest(dists,self.train_X[i])
