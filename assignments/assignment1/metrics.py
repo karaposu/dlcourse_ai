@@ -13,12 +13,27 @@ def binary_classification_metrics(prediction, ground_truth):
     recall = 0
     accuracy = 0
     f1 = 0
+    nTruePositives = 0
+    nFalsePositives = 0
+    for i in len(prediction):
+        if prediction[i] == True:
+            if prediction[i] == ground_truth[i]:
+                nTruePositives = nTruePositives + 1
+            else:
+                nFalsePositives = nFalsePositives + 1
+        else :
+            if prediction[i] == ground_truth[i]:
+                nTrueNegatives = nTrueNegatives + 1
+            else:
+                 nFalseNegatives = nFalseNegatives + 1
 
-    # TODO: implement metrics!
-    # Some helpful links:
-    # https://en.wikipedia.org/wiki/Precision_and_recall
-    # https://en.wikipedia.org/wiki/F1_score
-    
+    Recall = nTruePositives / (nTruePositives + nFalseNegatives)
+# Recall = TruePositives / (TruePositives + FalseNegatives)
+# TODO: implement metrics!
+# Some helpful links:
+# https://en.wikipedia.org/wiki/Precision_and_recall
+# https://en.wikipedia.org/wiki/F1_score
+
     return precision, recall, f1, accuracy
 
 
