@@ -89,6 +89,7 @@ class KNN:
             
             v1=v1.reshape(1, v1.shape[0])
             tmp=self.train_X-v1
+            print("tmp[",i,"]",tmp)
             dists[i_test]=np.sum(np.abs(tmp),-1)
         return dists
 
@@ -141,7 +142,7 @@ class KNN:
         pred, np array of bool (num_test_samples) - binary predictions 
            for every test sample
         '''
-        
+        print("dists:",dists)
         num_test = dists.shape[0]
         pred = np.zeros(num_test, np.bool)
         for i in range(num_test):
