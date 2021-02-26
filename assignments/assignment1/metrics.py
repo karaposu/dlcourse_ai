@@ -18,7 +18,8 @@ def binary_classification_metrics(prediction, ground_truth):
     print("len prediction", len(prediction))
     print("prediction", prediction)
     print("type prediction", type (prediction))
-    for i in len(prediction):
+    
+    for i in range(len(prediction)):
         if prediction[i] == True:
             if prediction[i] == ground_truth[i]:
                 nTruePositives = nTruePositives + 1
