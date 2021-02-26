@@ -13,37 +13,37 @@ def binary_classification_metrics(prediction, ground_truth):
     recall = 0
     accuracy = 0
     f1 = 0
-  
-    
+
     nTruePositives = 0
     nFalsePositives = 0
     nTrueNegatives = 0
     nFalseNegatives = 0
     print("len prediction", len(prediction))
     print("prediction", prediction)
-    print("type prediction", type (prediction))
-    
+    print("type prediction", type(prediction))
+
     for i in range(len(prediction)):
         if prediction[i] == True:
             if prediction[i] == ground_truth[i]:
                 nTruePositives = nTruePositives + 1
             else:
                 nFalsePositives = nFalsePositives + 1
-        else :
+        else:
             if prediction[i] == ground_truth[i]:
                 nTrueNegatives = nTrueNegatives + 1
             else:
-                 nFalseNegatives = nFalseNegatives + 1
+                nFalseNegatives = nFalseNegatives + 1
 
-    Recall = nTruePositives / (nTruePositives + nFalseNegatives)
-# Recall = TruePositives / (TruePositives + FalseNegatives)
-# Precision = (TruePositives_/ ((TruePositives + FalsePositives
-# F - Measure = (2 * Precision * Recall) / (Precision + Recall)
-# accuracy =  nTruePositives + nTrueNegatives  / nTruePositives + nTrueNegatives + nFalseNegatives+ nFalsePositives
-# TODO: implement metrics!
-# Some helpful links:
-# https://en.wikipedia.org/wiki/Precision_and_recall
-# https://en.wikipedia.org/wiki/F1_score
+    recall = nTruePositives / (nTruePositives + nFalseNegatives)
+    precision = nTruePositives/ (nTruePositives + nFalsePositives)
+    accuracy =  nTruePositives + nTrueNegatives / nTruePositives + nTrueNegatives + nFalseNegatives+ nFalsePositives
+                               
+    f1 = (2 *precision *recall) / (precision + recall)
+    #
+    # TODO: implement metrics!
+    # Some helpful links:
+    # https://en.wikipedia.org/wiki/Precision_and_recall
+    # https://en.wikipedia.org/wiki/F1_score
 
     return precision, recall, f1, accuracy
 
