@@ -13,8 +13,12 @@ def binary_classification_metrics(prediction, ground_truth):
     recall = 0
     accuracy = 0
     f1 = 0
+  
+    
     nTruePositives = 0
     nFalsePositives = 0
+    nTrueNegatives = 0
+    nFalseNegatives = 0
     print("len prediction", len(prediction))
     print("prediction", prediction)
     print("type prediction", type (prediction))
