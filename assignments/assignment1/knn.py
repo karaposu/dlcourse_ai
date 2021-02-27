@@ -1,3 +1,5 @@
+
+#deneme git yo
 import numpy as np
 
 
