@@ -150,7 +150,7 @@ class KNN:
         pred = np.zeros(num_test, np.bool)
         # print("self.train_y:"  ,self.train_y)
 
-
+        print("k is:", self.k)
         for i in range(num_test):
             # print("dists[i]:",dists[i])
             # TODO: Implement choosing best class based on k
@@ -165,9 +165,10 @@ class KNN:
             # find labels through these indexes in train labels
             # and see if total number of true is bigger than total number of false
 
-            # print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            print("distances for test data number [" ,i, "]:",dists[i])
+
             ind_of_train_example_with_min_distance= np.argmin(dists[i])
-            print("self.k:", self.k)
+
             indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[:self.k]
 
             filter_indices = indexes_of_k_smallest_values
