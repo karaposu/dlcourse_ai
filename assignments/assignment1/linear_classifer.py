@@ -15,7 +15,13 @@ def softmax(predictions):
     '''
     # TODO implement softmax
     # Your final implementation shouldn't have any loops
-    raise Exception("Not implemented!")
+    max_val=np.max(predictions)
+    p=predictions-max_val
+    exp_sum=np.sum(np.exp(p))
+    result= np.exp(p)/exp_sum
+    return result
+
+
 
 
 def cross_entropy_loss(probs, target_index):
