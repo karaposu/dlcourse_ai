@@ -185,6 +185,8 @@ class KNN:
             print("occurances:", occurances)
             print("np.argmax(occurances):", np.argmax(occurances))
             pred[i] =np.argmax(occurances)
+
+
             # print("self.test_y[" ,i,  "]:"  ,self.train_y[i])
             
             # # self.train_y[i]
