@@ -146,18 +146,28 @@ class KNN:
         '''
         # print("dists:",dists)
         num_test = dists.shape[0]
+        # 16
         pred = np.zeros(num_test, np.bool)
         # print("self.train_y:"  ,self.train_y)
+
+
         for i in range(num_test):
             # print("dists[i]:",dists[i])
             # TODO: Implement choosing best class based on k
             # nearest training samples
+
             # self.train_X has the images  (16, 3072)
             # self.train_y has the the labels (121,)
-            # dists array has array list of the euklodian distances of shape: (16, 121)
-            
-            
-            ind_of_train_example_with_min_distance= np.argmin(dists[i]) 
+            # dists array has array list of the l1 distances of shape: (16, 121)
+            # we choose dist[0] which is first test images distanceses for all other train data points
+            # now we will check the smallest n numbers
+            # put them in a list.
+            # and see if total number of true is bigger than total number of false
+
+            print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            ind_of_train_example_with_min_distance= np.argmin(dists[i])
+            indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[self.k:]
+            print("indexes_of_k_smallest_values for test image:[", i, "]:", indexes_of_k_smallest_values)
             
             
             print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
