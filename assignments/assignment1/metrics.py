@@ -18,9 +18,9 @@ def binary_classification_metrics(prediction, ground_truth):
     nFalsePositives = 0
     nTrueNegatives = 0
     nFalseNegatives = 0
-    print("len prediction", len(prediction))
-    print("prediction", prediction)
-    print("type prediction", type(prediction))
+    # print("len prediction", len(prediction))
+    # print("prediction", prediction)
+    # print("type prediction", type(prediction))
 
     for i in range(len(prediction)):
         if prediction[i] == True:
