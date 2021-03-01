@@ -162,6 +162,7 @@ class KNN:
             # we choose dist[0] which is first test images distanceses for all other train data points
             # now we will check the smallest n numbers
             # put them in a list.
+            # find labels through these indexes in train labels
             # and see if total number of true is bigger than total number of false
 
             # print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
@@ -169,12 +170,17 @@ class KNN:
             print("self.k:", self.k)
             indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[:self.k]
 
+            filter_indices = indexes_of_k_smallest_values
+            axis = 0
+            labels_of_k_smallest_values = np.zeros(self.k)
+
+            labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
             # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
             print("indexes_of_k_smallest_values for test image:[", i, "]:", indexes_of_k_smallest_values)
             
             
-            print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
-            # print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            # print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
+            print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
             # print("self.test_y[" ,i,  "]:"  ,self.train_y[i])
             
             # # self.train_y[i]
