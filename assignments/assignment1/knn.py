@@ -165,7 +165,7 @@ class KNN:
             # find labels through these indexes in train labels
             # and see if total number of true is bigger than total number of false
 
-            print("distances for test data number [" ,i, "]:",dists[i])
+            # print("distances for test data number [" ,i, "]:",dists[i])
 
             ind_of_train_example_with_min_distance= np.argmin(dists[i])
 
@@ -177,7 +177,7 @@ class KNN:
 
             labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
             # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
-            print("indexes_of_k_smallest_values for test image:[", i, "]:", indexes_of_k_smallest_values)
+            print("indexes_of_k_smallest_values for test image[", i, "]:", indexes_of_k_smallest_values)
             
             
             # print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
@@ -186,7 +186,7 @@ class KNN:
 
 
 
-            print("pred[",i,"]:",pred[i])
+            print("KNN prediction for test image[",i,"] is:",pred[i])
 
         return pred
 
