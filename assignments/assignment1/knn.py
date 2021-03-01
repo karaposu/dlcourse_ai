@@ -164,14 +164,17 @@ class KNN:
             # put them in a list.
             # and see if total number of true is bigger than total number of false
 
-            print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            # print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
             ind_of_train_example_with_min_distance= np.argmin(dists[i])
-            indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[self.k:]
+            print("self.k:", self.k)
+            indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[:self.k]
+
+            # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
             print("indexes_of_k_smallest_values for test image:[", i, "]:", indexes_of_k_smallest_values)
             
             
             print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
-            print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
+            # print("self.train_y[" ,i,  "]:"  ,self.train_y[i])
             # print("self.test_y[" ,i,  "]:"  ,self.train_y[i])
             
             # # self.train_y[i]
