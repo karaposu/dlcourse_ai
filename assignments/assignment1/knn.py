@@ -181,21 +181,12 @@ class KNN:
             
             # print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
             print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
-            occurances = np.bincount(labels_of_k_smallest_values)
-            print("occurances:", occurances)
-            print("np.argmax(occurances):", np.argmax(occurances))
-            pred[i] =np.argmax(occurances)
+            pred[i] = np.bincount(labels_of_k_smallest_values).argmax()
 
 
-            # print("self.test_y[" ,i,  "]:"  ,self.train_y[i])
-            
-            # # self.train_y[i]
 
-            pred[i] =self.train_y[i]
-            
+            print("pred[",i,"]:",pred[i])
 
-            # # self.find_nearest(dists,self.train_X[i])
-            
         return pred
 
     def predict_labels_multiclass(self, dists):
