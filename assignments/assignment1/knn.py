@@ -177,16 +177,17 @@ class KNN:
 
             labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
             # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
-            print("indexes_of_k_smallest_values for test image[", i, "]:", indexes_of_k_smallest_values)
+            # print("indexes_of_k_smallest_values for test image[", i, "]:", indexes_of_k_smallest_values)
             
             
-            # print("ind_of_train_example_with_min_distance for test_X[",i,"]:",ind_of_train_example_with_min_distance)
-            print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
+
+            # print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
             pred[i] = np.bincount(labels_of_k_smallest_values).argmax()
 
 
 
-            print("KNN prediction for test image[",i,"] is:",pred[i])
+            # print("KNN prediction for test image[",i,"] is:",pred[i])
+        self.prediction=  pred
 
         return pred
 
@@ -210,3 +211,8 @@ class KNN:
             # nearest training samples
             pass
         return pred
+
+
+
+
+
