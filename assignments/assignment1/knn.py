@@ -208,6 +208,20 @@ class KNN:
         pred = np.zeros(num_test, np.int)
         for i in range(num_test):
             # TODO: Implement choosing best class based on k
+
+            indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)[:self.k]
+
+            filter_indices = indexes_of_k_smallest_values
+            axis = 0
+
+
+            labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
+            # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
+            # print("indexes_of_k_smallest_values for test image[", i, "]:", indexes_of_k_smallest_values)
+
+            # print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
+            pred[i] = np.bincount(labels_of_k_smallest_values).argmax()
+
             # nearest training samples
             pass
         return pred
