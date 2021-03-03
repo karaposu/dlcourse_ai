@@ -150,7 +150,7 @@ class KNN:
         pred = np.zeros(num_test, np.bool)
         # print("self.train_y:"  ,self.train_y)
 
-        print("k is:", self.k)
+        # print("k is:", self.k)
         for i in range(num_test):
             # print("dists[i]:",dists[i])
             # TODO: Implement choosing best class based on k
