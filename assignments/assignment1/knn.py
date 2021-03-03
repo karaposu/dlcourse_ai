@@ -58,6 +58,7 @@ class KNN:
             for i_train in range(num_train):
                 # TODO: Fill dists[i_test][i_train]
                 dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
+
             return dists
 
     def compute_distances_one_loop(self, X):
@@ -87,12 +88,11 @@ class KNN:
         for i_test in range(num_test):
             # TODO: Fill the whole row of dists[i_test]
             # without additional loops or list comprehensions
-            v1=X[i_test]
-            
-            v1=v1.reshape(1, v1.shape[0])
-            tmp=self.train_X-v1
-            # print("tmp[",i_test,"]",tmp)
-            dists[i_test]=np.sum(np.abs(tmp),-1)
+
+            distance = np.abs(X[i_test] - self.train_X)
+            distance = distance.sum(axis=1).reshape(1, -1)
+            dists[i_test] = distance
+
         return dists
 
     def compute_distances_no_loops(self, X):
@@ -109,8 +109,7 @@ class KNN:
         '''
         num_train = self.train_X.shape[0]
         num_test = X.shape[0]
-        from scipy.spatial import distance
-        distance.euclidean([1, 0, 0], [0, 1, 0])  
+
         '''
         print("num_train:",num_train)
         print("num_test:",num_test)
@@ -121,16 +120,10 @@ class KNN:
         # Using float32 to to save memory - the default is float64
         dists = np.zeros((num_test, num_train), np.float32)
         # TODO: Implement computing all distances with no loops!
-        dist = np.sqrt(np.sum(np.square(X[:,np.newaxis,:] - self.train_X), axis=2))
-        # dists = -2 * np.dot(X, self.train_X.T) + np.sum(self.train_X**2,    axis=1) + np.sum(X**2, axis=1)[:, np.newaxis]
+
+        dists =  np.sum(self.X_train , axis=1) - np.sum(X, axis=1)[:, np.newaxis]
+
         return dists
-
-    #  def find_nearest(array, value):
-    #     array = np.asarray(array)
-    #     idx = (np.abs(array - value)).argmin()
-    #     return array[idx]
-
-        
 
     def predict_labels_binary(self, dists):
         '''
@@ -165,9 +158,7 @@ class KNN:
             # find labels through these indexes in train labels
             # and see if total number of true is bigger than total number of false
 
-            # print("distances for test data number [" ,i, "]:",dists[i])
 
-            ind_of_train_example_with_min_distance= np.argmin(dists[i])
 
             indexes_of_k_smallest_values= np.argpartition(dists[i], self.k)[:self.k]
 
@@ -216,11 +207,10 @@ class KNN:
 
 
             labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
-            # indexes_of_k_smallest_values = np.argpartition(dists[i], self.k)
-            # print("indexes_of_k_smallest_values for test image[", i, "]:", indexes_of_k_smallest_values)
+            (values, counts) = np.unique(labels_of_k_smallest_values, return_counts=True)
+            pred[i] = values[np.argmax(counts)]
 
-            # print("labels_of_k_smallest_values:"  ,labels_of_k_smallest_values)
-            pred[i] = np.bincount(labels_of_k_smallest_values).argmax()
+
 
             # nearest training samples
             pass
