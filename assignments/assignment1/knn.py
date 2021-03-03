@@ -121,7 +121,7 @@ class KNN:
         dists = np.zeros((num_test, num_train), np.float32)
         # TODO: Implement computing all distances with no loops!
 
-        dists =  np.sum(self.X_train , axis=1) - np.sum(X, axis=1)[:, np.newaxis]
+        dists =  np.sum(self.train_X , axis=1) - np.sum(X, axis=1)[:, np.newaxis]
 
         return dists
 
