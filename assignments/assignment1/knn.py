@@ -139,8 +139,18 @@ class KNN:
         '''
         # print("dists:",dists)
         num_test = dists.shape[0]
+
+
         # 16
+
+
+
+
         pred = np.zeros(num_test, np.bool)
+
+
+
+
         # print("self.train_y:"  ,self.train_y)
 
         # print("k is:", self.k)
