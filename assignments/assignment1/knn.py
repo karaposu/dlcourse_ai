@@ -33,7 +33,8 @@ class KNN:
             dists = self.compute_distances_one_loop(X)
         else:
             dists = self.compute_distances_two_loops(X)
-
+        print("dists shape:", dists.shape)
+        print("dists:", dists)
         if self.train_y.dtype == np.bool:
             return self.predict_labels_binary(dists)
         else:
