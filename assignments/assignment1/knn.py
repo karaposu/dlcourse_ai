@@ -219,12 +219,10 @@ class KNN:
 
             labels_of_k_smallest_values = np.take(self.train_y, filter_indices, axis)
             (values, counts) = np.unique(labels_of_k_smallest_values, return_counts=True)
+            # print("values:", values)
+            # print("counts:", counts)
             pred[i] = values[np.argmax(counts)]
 
-
-
-            # nearest training samples
-            pass
         return pred
 
 

@@ -63,5 +63,31 @@ def multiclass_accuracy(prediction, ground_truth):
     Returns:
     accuracy - ratio of accurate predictions to total samples
     '''
-    # TODO: Implement computing accuracy
-    return 0
+
+    accuracy = 0
+
+
+    nTruePositives = 0
+    nFalsePositives = 0
+    nTrueNegatives = 0
+    nFalseNegatives = 0
+    print("len prediction", len(prediction))
+    print("prediction", prediction)
+
+
+    for i in range(len(prediction)):
+        if prediction[i] == True:
+            if prediction[i] == ground_truth[i]:
+                nTruePositives = nTruePositives + 1
+            else:
+                nFalsePositives = nFalsePositives + 1
+        else:
+            if prediction[i] == ground_truth[i]:
+                nTrueNegatives = nTrueNegatives + 1
+            else:
+                nFalseNegatives = nFalseNegatives + 1
+
+    recall = nTruePositives / (nTruePositives + nFalseNegatives)
+    precision = nTruePositives / (nTruePositives + nFalsePositives)
+    accuracy = (nTruePositives + nTrueNegatives) / (nTruePositives + nTrueNegatives + nFalseNegatives + nFalsePositives)
+    return  accuracy
