@@ -37,10 +37,10 @@ def binary_classification_metrics(prediction, ground_truth):
     recall = nTruePositives / (nTruePositives + nFalseNegatives)
     precision = nTruePositives/ (nTruePositives + nFalsePositives)
     accuracy =  (nTruePositives + nTrueNegatives) / (nTruePositives + nTrueNegatives + nFalseNegatives+ nFalsePositives)
-    print("nTruePositives:", nTruePositives)
-    print("nTrueNegatives:", nTrueNegatives)
-    print("nFalseNegatives:", nFalseNegatives)
-    print("nFalsePositives:", nFalsePositives)
+    # print("nTruePositives:", nTruePositives)
+    # print("nTrueNegatives:", nTrueNegatives)
+    # print("nFalseNegatives:", nFalseNegatives)
+    # print("nFalsePositives:", nFalsePositives)
 
     f1 = (2 *precision *recall) / (precision + recall)
     #
