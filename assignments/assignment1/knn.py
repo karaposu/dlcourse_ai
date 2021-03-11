@@ -57,19 +57,13 @@ class KNN:
         print("num_test", num_test)
         print("num_train", num_train)
         dists = np.zeros((num_test, num_train), np.float32)
-        # for i_test in range(num_test):
-        #     for i_train in range(num_train):
-        #         # TODO: Fill dists[i_test][i_train]
-        #         dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
-        #
-        #
-        # print("dists", dists)
-
         for i_test in range(num_test):
-            print("oppa gangnam style", dists)
+            for i_train in range(num_train):
+                # TODO: Fill dists[i_test][i_train]
+                dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
 
 
-
+        print("dists", dists)
 
 
         return dists
