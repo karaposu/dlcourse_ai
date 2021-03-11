@@ -58,15 +58,13 @@ class KNN:
         for i_test in range(num_test):
             for i_train in range(num_train):
                 # TODO: Fill dists[i_test][i_train]
-                # dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
-                a=np.abs([X[i_test] - self.train_X[i_train]])
+                dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
+
                 b=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
-                print("a:", a)
                 print("b:", b)
-                print("a:", a.shape,"b:", b.shape)
-                print("b:", b.shape)
-                # dists[i_test, i_train] = np.abs([X[i_test] - self.train_X[i_train]])
-                print("dists[i_test, i_train]:", dists[i_test, i_train])
+
+
+
 
 
             return dists
@@ -101,6 +99,8 @@ class KNN:
 
             distance = np.abs(X[i_test] - self.train_X)
             distance = distance.sum(axis=1).reshape(1, -1)
+            print("distance:", distance)
+            print("distance:", distance.shape)
             dists[i_test] = distance
 
         return dists
