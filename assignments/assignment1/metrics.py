@@ -1,3 +1,5 @@
+from pyspark.mllib.evaluation import MulticlassMetrics
+
 def binary_classification_metrics(prediction, ground_truth):
     '''
     Computes metrics for binary classification
@@ -69,10 +71,7 @@ def multiclass_accuracy(prediction, ground_truth):
 
     nTruePositives = 0
     nFalsePositives = 0
-    nTrueNegatives = 0
-    nFalseNegatives = 0
-    # print("len prediction", len(prediction))
-    # print("prediction", prediction)
+
 
     for i in range(len(prediction)):
 
