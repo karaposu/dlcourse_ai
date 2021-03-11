@@ -1,4 +1,3 @@
-from pyspark.mllib.evaluation import MulticlassMetrics
 
 def binary_classification_metrics(prediction, ground_truth):
     '''
