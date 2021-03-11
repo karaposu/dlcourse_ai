@@ -59,6 +59,8 @@ class KNN:
             for i_train in range(num_train):
                 # TODO: Fill dists[i_test][i_train]
                 # dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
+                a=np.abs([X[i_test] - self.train_X[i_train]])
+                print("a:", a)
                 dists[i_test, i_train] = np.abs([X[i_test] - self.train_X[i_train]])
                 print("dists[i_test, i_train]:", dists[i_test, i_train])
 
