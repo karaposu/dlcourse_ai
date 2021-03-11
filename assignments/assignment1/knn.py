@@ -54,8 +54,8 @@ class KNN:
         '''
         num_train = self.train_X.shape[0]
         num_test = X.shape[0]
-        print("num_test", num_test)
-        print("num_train", num_train)
+        # print("num_test", num_test)
+        # print("num_train", num_train)
         dists = np.zeros((num_test, num_train), np.float32)
         for i_test in range(num_test):
             for i_train in range(num_train):
@@ -63,7 +63,7 @@ class KNN:
                 dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
 
 
-        print("dists", dists)
+        # print("dists", dists)
 
 
         return dists
@@ -93,8 +93,8 @@ class KNN:
 
             distance = np.abs(X[i_test] - self.train_X)
             distance = distance.sum(axis=1).reshape(1, -1)
-            print("distance:", distance)
-            print("distance:", distance.shape)
+            # print("distance:", distance)
+            # print("distance:", distance.shape)
             dists[i_test] = distance
 
         return dists
@@ -143,21 +143,10 @@ class KNN:
         '''
         # print("dists:",dists)
         num_test = dists.shape[0]
-
-
-        # 16
-
-
-
-
         pred = np.zeros(num_test, np.bool)
 
 
 
-
-        # print("self.train_y:"  ,self.train_y)
-
-        # print("k is:", self.k)
         for i in range(num_test):
             # print("dists[i]:",dists[i])
             # TODO: Implement choosing best class based on k
