@@ -64,7 +64,8 @@ class KNN:
                 print("a:", a)
                 print("b:", b)
                 print("a:", a.shape,"b:", b.shape)
-                dists[i_test, i_train] = np.abs([X[i_test] - self.train_X[i_train]])
+                print("b:", b.shape)
+                # dists[i_test, i_train] = np.abs([X[i_test] - self.train_X[i_train]])
                 print("dists[i_test, i_train]:", dists[i_test, i_train])
 
 
