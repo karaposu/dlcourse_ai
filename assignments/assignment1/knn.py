@@ -66,18 +66,13 @@ class KNN:
         # print("dists", dists)
 
         for i_test in range(num_test):
-            # for i_train in range(num_train):
-            #     print("BBBBB", dists)
-
-
-
-            print("ALIII", dists)
+            print("oppa gangnam style", dists)
 
 
 
 
 
-            return dists
+        return dists
 
     def compute_distances_one_loop(self, X):
         '''
