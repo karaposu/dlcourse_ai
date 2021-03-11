@@ -66,8 +66,8 @@ class KNN:
         # print("dists", dists)
 
         for i_test in range(num_test):
-            for i_train in range(num_train):
-                print("BBBBB", dists)
+            # for i_train in range(num_train):
+            #     print("BBBBB", dists)
 
 
 
