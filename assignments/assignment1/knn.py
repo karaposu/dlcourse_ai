@@ -61,7 +61,7 @@ class KNN:
                 dists[i_test,i_train]=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
 
                 b=np.sum(np.abs([ X[i_test]- self.train_X[i_train]]))
-                print("b:", b)
+                print("dists", dists)
 
 
 
@@ -85,12 +85,7 @@ class KNN:
         num_test = X.shape[0]
         dists = np.zeros((num_test, num_train), np.float32)
         '''
-        print("X.shape:",X.shape)
-        print("X[0] or v1:",X[0])
-        print("X[0].shape:",X[0].shape)
-        k=X[0].reshape(1, X[0].shape[0])
-        print("v1.reshape(1, v1.shape[0]):",k)
-        print("v1.reshaped to:",k.shape)
+
         '''
         
         for i_test in range(num_test):
