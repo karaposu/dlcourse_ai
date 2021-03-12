@@ -114,18 +114,22 @@ class KNN:
         num_train = self.train_X.shape[0]
         num_test = X.shape[0]
 
-        '''
+
         print("num_train:",num_train)
         print("num_test:",num_test)
         print("X.shape:",X.shape)
-      
+
         print("train_X.shape:",self.train_X.shape)
-        '''
+
         # Using float32 to to save memory - the default is float64
         dists = np.zeros((num_test, num_train), np.float32)
         # TODO: Implement computing all distances with no loops!
 
-        dists =  np.sum(self.train_X , axis=1) - np.sum(X, axis=1)[:, np.newaxis]
+        # dists2 = np.zeros((2, 3, 4), np.float32)
+        # er = train_data.reshape(2, 2, 3)
+        #
+        # dists =  np.sum(self.train_X , axis=1) - np.sum(X, axis=1)[:, np.newaxis]
+        # dist = np.sqrt(np.sum(np.square(self.train_X[:, np.newaxis, :] - X), axis=2))
 
         return dists
 
